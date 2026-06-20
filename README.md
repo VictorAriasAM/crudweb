@@ -37,7 +37,7 @@ Videos del proceso:
 - Proyecto final: VirX Pulse
 
 📱 TikTok:
-[https://www.tiktok.com/@TU_USUARIO](https://www.tiktok.com/@victorjr_x?_r=1&_t=ZS-97MD6Xs8Dis)
+(https://www.tiktok.com/@victorjr_x?_r=1&_t=ZS-97MD6Xs8Dis)
 
 ## Lo que aprendí
 
