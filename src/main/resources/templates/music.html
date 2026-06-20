@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/media.css">
+    <title>VjrX Pulse | Plataforma Musical</title>
+</head>
+
+<body>
+<header>
+    <div class="menu_side">
+        <h6 id="menu_list_active_button" ><i class="bi bi-music-note-list"></i></h6>
+        <h1 class="logo">
+            <img src="/img/logo-vjrx-pulse.png"
+                 alt="VjrX Pulse"
+                 width="35">
+            VjrX Pulse
+        </h1>
+        <div class="playlist">
+            <h4 class="active"><span></span><i class="bi bi-house-fill"></i> Descubrir</h4>
+            <h4><span></span><i class="bi bi-graph-up"></i> Ranking</h4>
+            <h4><span></span><i class="bi bi-collection-play"></i> Playlists</h4>
+        </div>
+        <div class="menu_song" id="menu_song"></div>
+     </div>
+      <div class="song_side">
+          <nav>
+              <ul>
+                  <li>Inicio</li>
+                  <li>Explorar</li>
+                  <li>Colecciones</li>
+              </ul>
+              <div class="search">
+                  <i class="bi bi-search"></i>
+                  <input type="text" id="searchInput" placeholder="Search Music...">
+                  <div class="search_results" id="search_results"></div>
+            </div>
+            <div class="user">
+                <img src="/img/logo-vjrx-pulse.png" alt="VjrX Pulse">
+            </div>
+        </nav>
+          <div class="content">
+              <h1>🔥 El ritmo de tu mundo.</h1>
+
+              <p>
+                  Explora nuevos artistas, descubre tendencias y crea tu experiencia musical.
+              </p>
+
+              <div class="buttons">
+                  <button>EMPEZAR</button>
+                  <button>EXPLORAR</button>
+              </div>
+
+              <div class="stats">
+
+              <div class="card">
+                  <h2 id="totalCanciones">0</h2>
+                  <span>Canciones</span>
+              </div>
+
+                  <div class="card">
+                      <h2>80+</h2>
+                      <span>Artistas</span>
+                  </div>
+
+                  <div class="card">
+                      <h2>120+</h2>
+                      <span>Playlists</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="popular_song">
+              <div class="h4">
+                  <h4>🔥 Lo Más Escuchado</h4>
+              </div>
+
+              <div class="pop_song" id="pop_song"></div>
+          </div>
+        <div class="popular_artists">
+            <div class="h4">
+                <h4>⭐ Recomendados para Ti</h4>
+                <div class="btn_s">
+                    <i class="bi bi-arrow-left-short" id="pop_art_left"></i>
+                    <i class="bi bi-arrow-right-short" id="pop_art_right"></i>
+                </div>
+            </div>
+            <div class="item Artists_bx" id="artists"></div>
+        </div>
+
+          <div class="popular_song">
+              <div class="h4">
+                  <h4>❤️ Favoritos (<span id="totalFavoritos">0</span>)</h4>
+              </div>
+
+              <div class="pop_song" id="favoritos"></div>
+          </div>
+
+
+    </div>
+    <div class="master_play">
+        <div class="wave" id="wave">
+            <div class="wave1"></div>
+            <div class="wave1"></div>
+            <div class="wave1"></div>
+        </div>
+        <img src="/img/logo-vjrx-pulse.png" alt="" id="poster_master_play">
+        <h5 id="title">
+            VjrX Pulse
+            <div class="subtitle">Tu Universo Musical</div>
+        </h5>
+        <div class="icon">
+            <i class="bi shuffle bi-music-note-beamed">next</i>
+            <i class="bi bi-skip-start-fill" id="back"></i>
+            <i class="bi bi-play-fill" id="masterPlay"></i>
+            <i class="bi bi-skip-end-fill" id="next"></i>
+            <a href="" download id="download_music"><i class="bi bi-cloud-arrow-down-fill"></i></a>
+        </div>
+        <span id="currentStart">0:00</span>
+        <div class="bar">
+            <input type="range" id="seek" min="0" max="100">
+            <div class="bar2" id="bar2"></div>
+            <div class="dot"></div>
+        </div>
+        <span id="currentEnd">0:30</span>
+        <div class="vol">
+            <i class="bi bi-volume-up-fill" id="vol_icon"></i>
+            <input type="range" min="0" max="100" id="vol">
+            <div class="vol_bar"></div>
+            <div class="dot" id="vol_dot"></div>
+        </div>
+    </div>
+</header>
+
+<audio id="audioPlayer"></audio>
+
+<script src="/js/data.js"></script>
+<script src="/js/app.js"></script>
+<script>
+    let menu_list_active_button = document.getElementById('menu_list_active_button');
+    let menu_side = document.getElementsByClassName('menu_side')[0];
+
+
+    let song_side = document.getElementsByClassName('song_side')[0];
+
+
+    let xm = window.matchMedia("(max-width: 930px)");
+
+    menu_list_active_button.addEventListener('click', () => {
+        if (xm.matches) {
+            menu_side.style.transform = "unset";
+            menu_list_active_button.style.opacity = 0;
+        }
+    })
+
+    song_side.addEventListener('click', () => {
+        if (xm.matches) {
+            menu_side.style.transform = "translateX(-100%)";
+            menu_list_active_button.style.opacity = 1;
+        }
+    })
+</script>
+</body>
+
+</html>

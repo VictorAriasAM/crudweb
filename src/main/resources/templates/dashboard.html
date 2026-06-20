@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard CRUD</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#0f172a;
+            color:white;
+        }
+
+        .container{
+            width:90%;
+            margin:40px auto;
+        }
+
+        h1{
+            text-align:center;
+            color:#38bdf8;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 0 20px rgba(0,0,0,0.4);
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th, td{
+            padding:15px;
+            text-align:center;
+            border-bottom:1px solid #334155;
+        }
+
+        th{
+            background:#2563eb;
+        }
+
+        tr:hover{
+            background:#334155;
+        }
+
+        .btn{
+            padding:8px 15px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            color:white;
+        }
+
+        .edit{
+            background:#22c55e;
+        }
+
+        .delete{
+            background:#ef4444;
+        }
+
+        .formulario{
+            margin: 30px auto;
+            margin-bottom:30px;
+            text-align:center;
+        }
+
+        .formulario input{
+            padding:12px;
+            margin:5px;
+            border:none;
+            border-radius:8px;
+        }
+
+        .formulario button{
+            padding:12px 20px;
+            background:#22c55e;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="formulario">
+
+    <h2 th:text="${usuario != null ? '✏️ Editar Usuario' : '➕ Crear Usuario'}"></h2>
+
+    <form th:action="${usuario != null} ? @{/actualizar} : @{/guardar}"
+          method="post">
+
+        <input type="hidden"
+               name="id"
+               th:value="${usuario != null ? usuario.id : ''}">
+
+        <input type="text"
+               name="nombre"
+               placeholder="Nombre"
+               th:value="${usuario != null ? usuario.nombre : ''}"
+               required>
+
+        <input type="password"
+               id="password"
+               name="password"
+               placeholder="Contraseña"
+               th:value="${usuario != null ? usuario.password : ''}"
+               required>
+
+        <label>
+            <input type="checkbox" onclick="mostrarPassword()">
+            Mostrar contraseña
+        </label>
+
+        <button type="submit"
+                th:text="${usuario != null ? 'Actualizar Usuario' : 'Guardar Usuario'}">
+        </button>
+
+    </form>
+
+</div>
+
+<div class="container">
+    <div class="card">
+        <h1>📊 Dashboard CRUD Web</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Password</th>
+                <th>Acciones</th>
+            </tr>
+
+            <tr th:each="u : ${usuarios}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.nombre}"></td>
+                <td th:text="${u.password != null ? '******' : ''}"></td>
+                <td>
+                    <a th:href="@{/editar/{id}(id=${u.id})}"
+                       class="btn edit">
+                        Editar
+                    </a>
+
+                    <form th:action="@{/eliminar/{id}(id=${u.id})}"
+                          method="post"
+                          style="display:inline;">
+
+                        <button type="submit"
+                                class="btn delete"
+                                onclick="return confirm('¿Eliminar usuario?')">
+
+                            Eliminar
+
+                        </button>
+
+                    </form>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
