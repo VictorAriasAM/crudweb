@@ -15,12 +15,17 @@ Aplicación web desarrollada con Java, Spring Boot, Thymeleaf y MySQL para la ge
 ## Funcionalidades
 
 - Inicio de sesión
+<img width="787" height="792" alt="image" src="https://github.com/user-attachments/assets/1925dc9f-a3c8-4e47-b82e-2c3311cb93a4" />
+
 - Registro de usuarios
 - Consulta de usuarios
 - Actualización de información
 - Eliminación de registros
 - Dashboard principal
+  <img width="1415" height="765" alt="image" src="https://github.com/user-attachments/assets/532f9ea0-615d-4310-92cd-f4b1fa888ea9" />
+
 - Reproductor de música integrado
+<img width="1389" height="1272" alt="image" src="https://github.com/user-attachments/assets/54073e7a-a836-407b-b36b-eac36c53bfe7" />
 
 ## 🎥 Serie de desarrollo
 
